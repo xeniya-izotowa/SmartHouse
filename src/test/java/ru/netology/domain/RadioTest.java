@@ -144,7 +144,7 @@ class RadioTest {
         Radio testRadio = new Radio();
 
         testRadio.setCurrentStation(2);
-        testRadio.turnNextStation(testRadio.getCurrentStation());
+        testRadio.turnNextStation();
 
         assertEquals(3, testRadio.getCurrentStation());
 
@@ -155,29 +155,29 @@ class RadioTest {
         Radio testRadio = new Radio();
 
         testRadio.setCurrentStation(9);
-        testRadio.turnNextStation(testRadio.getCurrentStation());
+        testRadio.turnNextStation();
 
         assertEquals(9, testRadio.getCurrentStation());
 
     }
 
     @Test
-    void shouldTurnPrevtStation() {
+    void shouldTurnPrevStation() {
         Radio testRadio = new Radio();
 
         testRadio.setCurrentStation(7);
-        testRadio.turnPrevStation(testRadio.getCurrentStation());
+        testRadio.turnPrevStation();
 
         assertEquals(6, testRadio.getCurrentStation());
 
     }
 
     @Test
-    void shouldTurnPrevtStation2() {
+    void shouldTurnPrevStation2() {
         Radio testRadio = new Radio();
 
         testRadio.setCurrentStation(0);
-        testRadio.turnPrevStation(testRadio.getCurrentStation());
+        testRadio.turnPrevStation();
 
         assertEquals(0, testRadio.getCurrentStation());
 
@@ -188,7 +188,7 @@ class RadioTest {
         Radio testRadio = new Radio();
 
         testRadio.setCurrentStation(9);
-        testRadio.turnNextStationWhenAboveMax(testRadio.getCurrentStation());
+        testRadio.turnNextStationWhenAboveMax();
 
         assertEquals(9, testRadio.getCurrentStation());
     }
@@ -198,7 +198,7 @@ class RadioTest {
         Radio testRadio = new Radio();
 
         testRadio.setCurrentStation(2);
-        testRadio.turnNextStationWhenAboveMax(testRadio.getCurrentStation());
+        testRadio.turnNextStationWhenAboveMax();
 
         assertEquals(2, testRadio.getCurrentStation());
     }
@@ -208,7 +208,7 @@ class RadioTest {
         Radio testRadio = new Radio();
 
         testRadio.setCurrentStation(0);
-        testRadio.turnPrevStationWhenBelowMin(testRadio.getCurrentStation());
+        testRadio.turnPrevStationWhenBelowMin();
 
         assertEquals(0, testRadio.getCurrentStation());
     }
@@ -218,7 +218,7 @@ class RadioTest {
         Radio testRadio = new Radio();
 
         testRadio.setCurrentStation(8);
-        testRadio.turnPrevStationWhenBelowMin(testRadio.getCurrentStation());
+        testRadio.turnPrevStationWhenBelowMin();
 
         assertEquals(8, testRadio.getCurrentStation());
     }
