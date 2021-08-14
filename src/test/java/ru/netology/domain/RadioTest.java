@@ -73,7 +73,7 @@ class RadioTest {
     void shouldIncreaseVolume2() {
         Radio testRadio = new Radio();
 
-        testRadio.setCurrentVolume(10);
+        testRadio.setCurrentVolume(testRadio.getMaxVolume());
         testRadio.increaseVolume();
 
         assertEquals(10, testRadio.getCurrentVolume());
@@ -154,7 +154,7 @@ class RadioTest {
     void shouldTurnNextStation2() {
         Radio testRadio = new Radio();
 
-        testRadio.setCurrentStation(9);
+        testRadio.setCurrentStation(testRadio.getMaxStation());
         testRadio.turnNextStation();
 
         assertEquals(9, testRadio.getCurrentStation());
@@ -176,10 +176,10 @@ class RadioTest {
     void shouldTurnPrevStation2() {
         Radio testRadio = new Radio();
 
-        testRadio.setCurrentStation(0);
+        testRadio.setCurrentStation(testRadio.getMinStation());
         testRadio.turnPrevStation();
 
-        assertEquals(0, testRadio.getCurrentStation());
+        assertEquals(testRadio.getMinStation(), testRadio.getCurrentStation());
 
     }
 
@@ -187,10 +187,10 @@ class RadioTest {
     void shouldNotTurnNextWhenStationIsMax() {
         Radio testRadio = new Radio();
 
-        testRadio.setCurrentStation(9);
+        testRadio.setCurrentStation(testRadio.getMaxStation());
         testRadio.turnNextStationWhenAboveMax();
 
-        assertEquals(9, testRadio.getCurrentStation());
+        assertEquals(testRadio.getMaxStation(), testRadio.getCurrentStation());
     }
 
     @Test
@@ -207,7 +207,7 @@ class RadioTest {
     void shouldNotTurnPrevStationWhenStationIsMin() {
         Radio testRadio = new Radio();
 
-        testRadio.setCurrentStation(0);
+        testRadio.setCurrentStation(testRadio.getMinStation());
         testRadio.turnPrevStationWhenBelowMin();
 
         assertEquals(0, testRadio.getCurrentStation());
@@ -258,6 +258,38 @@ class RadioTest {
         testRadio.setMinVolume(1);
 
         assertEquals(1, testRadio.getMinVolume());
+    }
+
+    @Test
+    void shouldSetMinStation() {
+        Radio testRadio = new Radio();
+
+        testRadio.setMinStation(1);
+
+        assertEquals(1, testRadio.getMinStation());
+    }
+
+    @Test
+    void shouldGetMinStation() {
+        Radio testRadio = new Radio();
+
+        assertEquals(0, testRadio.getMinStation());
+    }
+
+    @Test
+    void shouldSetMaxStation() {
+        Radio testRadio = new Radio();
+
+        testRadio.setMaxStation(100);
+
+        assertEquals(100, testRadio.getMaxStation());
+    }
+
+    @Test
+    void shouldGetMaxStation() {
+        Radio testRadio = new Radio();
+
+        assertEquals(9, testRadio.getMaxStation());
     }
 
 }

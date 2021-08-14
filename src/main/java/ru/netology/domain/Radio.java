@@ -19,6 +19,22 @@ public class Radio {
         return name;
     }
 
+    public void setMinStation(int minStation) {
+        this.minStation = minStation;
+    }
+
+    public int getMinStation() {
+        return minStation;
+    }
+
+    public void setMaxStation(int maxStation) {
+        this.maxStation = maxStation;
+    }
+
+    public int getMaxStation() {
+        return maxStation;
+    }
+
     public void setMaxVolume(int maxVolume) {
         this.maxVolume = maxVolume;
     }
