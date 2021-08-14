@@ -223,4 +223,41 @@ class RadioTest {
         assertEquals(8, testRadio.getCurrentStation());
     }
 
+    @Test
+    void shouldSetName() {
+        Radio testRadio = new Radio();
+
+        testRadio.setName("Test Radio");
+
+        assertEquals("Test Radio", testRadio.getName());
+    }
+
+    @Test
+    void shouldGetName() {
+        Radio testRadio = new Radio();
+
+        testRadio.setName("First Radio");
+        testRadio.getName();
+
+        assertEquals("First Radio", testRadio.getName());
+    }
+
+    @Test
+    void shouldSetMaxVolume() {
+        Radio testRadio = new Radio();
+
+        testRadio.setMaxVolume(15);
+
+        assertEquals(15, testRadio.getMaxVolume());
+    }
+
+    @Test
+    void shouldSetMinVolume() {
+        Radio testRadio = new Radio();
+
+        testRadio.setMinVolume(1);
+
+        assertEquals(1, testRadio.getMinVolume());
+    }
+
 }
