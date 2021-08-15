@@ -55,7 +55,7 @@ class RadioTest {
     void shouldSetCurrentVolume3() {
         Radio testRadio = new Radio();
 
-        testRadio.setCurrentVolume(12);
+        testRadio.setCurrentVolume(120);
 
         assertEquals(0, testRadio.getCurrentVolume());
     }
@@ -76,7 +76,7 @@ class RadioTest {
         testRadio.setCurrentVolume(testRadio.getMaxVolume());
         testRadio.increaseVolume();
 
-        assertEquals(10, testRadio.getCurrentVolume());
+        assertEquals(100, testRadio.getCurrentVolume());
     }
 
     @Test
@@ -104,19 +104,9 @@ class RadioTest {
         Radio testRadio = new Radio();
         testRadio.setCurrentVolume(testRadio.getMaxVolume());
 
-        testRadio.increaseVolumeAboveMax();
+        testRadio.increaseVolume();
 
         assertEquals(testRadio.getMaxVolume(), testRadio.getCurrentVolume());
-    }
-
-    @Test
-    void shouldNotIncreaseVolumeAboveMax2() {
-        Radio testRadio = new Radio();
-        testRadio.setCurrentVolume(2);
-
-        testRadio.increaseVolumeAboveMax();
-
-        assertEquals(2, testRadio.getCurrentVolume());
     }
 
     @Test
@@ -124,19 +114,9 @@ class RadioTest {
         Radio testRadio = new Radio();
         testRadio.setCurrentVolume(testRadio.getMinVolume());
 
-        testRadio.decreaseVolumeBelowMin();
+        testRadio.decreaseVolume();
 
         assertEquals(testRadio.getMinVolume(), testRadio.getCurrentVolume());
-    }
-
-    @Test
-    void shouldNotDecreaseVolumeBelowMin2() {
-        Radio testRadio = new Radio();
-        testRadio.setCurrentVolume(1);
-
-        testRadio.decreaseVolumeBelowMin();
-
-        assertEquals(1, testRadio.getCurrentVolume());
     }
 
     @Test
@@ -188,19 +168,9 @@ class RadioTest {
         Radio testRadio = new Radio();
 
         testRadio.setCurrentStation(testRadio.getMaxStation());
-        testRadio.turnNextStationWhenAboveMax();
+        testRadio.turnNextStation();
 
         assertEquals(testRadio.getMaxStation(), testRadio.getCurrentStation());
-    }
-
-    @Test
-    void shouldNotTurnNextWhenStationIsMax2() {
-        Radio testRadio = new Radio();
-
-        testRadio.setCurrentStation(2);
-        testRadio.turnNextStationWhenAboveMax();
-
-        assertEquals(2, testRadio.getCurrentStation());
     }
 
     @Test
@@ -208,19 +178,9 @@ class RadioTest {
         Radio testRadio = new Radio();
 
         testRadio.setCurrentStation(testRadio.getMinStation());
-        testRadio.turnPrevStationWhenBelowMin();
+        testRadio.turnPrevStation();
 
         assertEquals(0, testRadio.getCurrentStation());
-    }
-
-    @Test
-    void shouldNotTurnPrevStationWhenStationIsMin2() {
-        Radio testRadio = new Radio();
-
-        testRadio.setCurrentStation(8);
-        testRadio.turnPrevStationWhenBelowMin();
-
-        assertEquals(8, testRadio.getCurrentStation());
     }
 
     @Test
