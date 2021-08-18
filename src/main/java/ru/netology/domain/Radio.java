@@ -10,6 +10,13 @@ public class Radio {
     private int maxVolume = 10;
     private int currentVolume = minVolume;
 
+    public Radio() {
+
+    }
+
+    public Radio(int maxStation) {
+        this.maxStation = maxStation;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -19,16 +26,8 @@ public class Radio {
         return name;
     }
 
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
-    }
-
     public int getMinStation() {
         return minStation;
-    }
-
-    public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
     }
 
     public int getMaxStation() {
@@ -41,10 +40,6 @@ public class Radio {
 
     public int getMaxVolume() {
         return maxVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
     }
 
     public int getMinVolume() {
@@ -66,26 +61,20 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < maxVolume) {
+        if (currentVolume == maxVolume) {
+            return;
+        }
+        else {
             currentVolume = currentVolume + 1;
         }
     }
 
     public void decreaseVolume() {
-        if (currentVolume > minVolume) {
-            currentVolume = currentVolume - 1;
-        }
-    }
-
-    public void increaseVolumeAboveMax() {
-        if (currentVolume == maxVolume) {
-            return;
-        }
-    }
-
-    public void decreaseVolumeBelowMin() {
         if (currentVolume == minVolume) {
             return;
+        }
+        else {
+            currentVolume = currentVolume - 1;
         }
     }
 
@@ -104,26 +93,20 @@ public class Radio {
     }
 
     public void turnNextStation() {
-        if (currentStation < maxStation) {
+        if (currentStation == maxStation) {
+            currentStation = minStation;
+        }
+        else {
             currentStation += 1;
         }
     }
 
     public void turnPrevStation() {
-        if (currentStation > minStation) {
-            currentStation -= 1;
-        }
-    }
-
-    public void turnNextStationWhenAboveMax() {
-        if (currentStation == maxStation) {
-            return;
-        }
-    }
-
-    public void turnPrevStationWhenBelowMin() {
         if (currentStation == minStation) {
-            return;
+            currentStation = maxStation;
+        }
+        else {
+            currentStation -= 1;
         }
     }
 
