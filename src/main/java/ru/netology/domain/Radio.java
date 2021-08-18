@@ -10,6 +10,7 @@ public class Radio {
     private int maxVolume = 10;
     private int currentVolume = minVolume;
 
+
     public Radio() {
 
     }
@@ -17,6 +18,7 @@ public class Radio {
     public Radio(int maxStation) {
         this.maxStation = maxStation;
     }
+
 
     public void setName(String name) {
         this.name = name;
@@ -109,6 +111,5 @@ public class Radio {
             currentStation -= 1;
         }
     }
-
 
 }
