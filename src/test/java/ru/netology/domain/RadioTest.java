@@ -7,111 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     @Test
-    void shouldSetName() {
-        Radio radio = new Radio();
-
-        radio.setName("Test Radio");
-
-        assertEquals("Test Radio", radio.getName());
-    }
-
-    @Test
-    void shouldGetName() {
-        Radio radio = new Radio();
-
-        radio.setName("Second test Radio");
-        radio.getName();
-
-        assertEquals("Second test Radio", radio.getName());
-    }
-
-    @Test
-    void shouldGetMinStation() {
-        Radio radio = new Radio();
-
-        radio.getMinStation();
-
-        assertEquals(0, radio.getMinStation());
-    }
-
-
-    @Test
-    void shouldGetMaxStationFromParams() {
-        Radio radio  = new Radio(20);
-
-        assertEquals(20, radio.getMaxStation());
-    }
-
-    @Test
-    void shouldGetMaxStationByDefault() {
-        Radio radio = new Radio();
-
-        assertEquals(9, radio.getMaxStation());
-    }
-
-    @Test
-    void shouldSetMaxVolume() {
-        Radio radio = new Radio();
-
-        radio.setMaxVolume(7);
-
-        assertEquals(7, radio.getMaxVolume());
-    }
-
-    @Test
-    void shouldGetMaxVolume() {
-        Radio radio = new Radio();
-
-        radio.setMaxVolume(8);
-        radio.getMaxVolume();
-
-        assertEquals(8, radio.getMaxVolume());
-    }
-
-    @Test
-    void shouldGetMinVolume() {
-        Radio radio = new Radio();
-
-        assertEquals(0, radio.getMinVolume());
-    }
-
-    @Test
-    void shouldGetCurrentVolume() {
-        Radio radio  = new Radio();
-
-        radio.setCurrentVolume(5);
-
-        assertEquals(5, radio.getCurrentVolume());
-    }
-
-    @Test
-    void shouldSetCurrentVolume() {
-        Radio radio = new Radio();
-
-        radio.setCurrentVolume(7);
-
-        assertEquals(7, radio.getCurrentVolume());
-    }
-
-    @Test
-    void shouldNotSetCurrentVolumeBelowMin() {
-        Radio radio = new Radio();
-
-        radio.setCurrentVolume(-1);
-
-        assertEquals(radio.getMinVolume(), radio.getCurrentVolume());
-    }
-
-    @Test
-    void shouldNotSetCurrentVolumeAboveMax() {
-        Radio radio = new Radio();
-
-        radio.setCurrentVolume(105);
-
-        assertEquals(radio.getMinVolume(), radio.getCurrentVolume());
-    }
-
-    @Test
     void shouldIncreaseVolume() {
         Radio radio = new Radio();
 
@@ -123,7 +18,7 @@ class RadioTest {
 
     @Test
     void shouldNotIncreaseVolumeWhenIsMax() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(14);
 
         radio.setCurrentVolume(radio.getMaxVolume());
         radio.increaseVolume();
@@ -133,7 +28,7 @@ class RadioTest {
 
     @Test
     void shouldDecreaseVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(22);
 
         radio.setCurrentVolume(3);
         radio.decreaseVolume();
@@ -152,43 +47,6 @@ class RadioTest {
     }
 
     @Test
-    void shouldSetCurrentStation() {
-        Radio radio = new Radio();
-
-        radio.setCurrentStation(radio.getMinStation() - 1);
-
-        assertEquals(radio.getMinStation(), radio.getCurrentStation());
-    }
-
-    @Test
-    void shouldSetCurrentStation2() {
-        Radio radio = new Radio();
-
-        radio.setCurrentStation(radio.getMaxStation() + 1);
-
-        assertEquals(radio.getMinStation(), radio.getCurrentStation());
-    }
-
-    @Test
-    void shouldSetCurrentStation3() {
-        Radio radio = new Radio();
-
-        radio.setCurrentStation(4);
-
-        assertEquals(4, radio.getCurrentStation());
-    }
-
-    @Test
-    void shouldGetCurrentStation() {
-        Radio radio = new Radio();
-
-        radio.setCurrentStation(6);
-        radio.getCurrentStation();
-
-        assertEquals(6, radio.getCurrentStation());
-    }
-
-    @Test
     void shouldTurnNextStationWhenIsMax() {
         Radio radio = new Radio();
 
@@ -200,7 +58,7 @@ class RadioTest {
 
     @Test
     void shouldTurnNextStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(36);
 
         radio.setCurrentStation(2);
         radio.turnNextStation();
@@ -220,7 +78,7 @@ class RadioTest {
 
     @Test
     void shouldTurnPrevStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(20);
 
         radio.setCurrentStation(5);
         radio.turnPrevStation();
